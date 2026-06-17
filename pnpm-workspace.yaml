@@ -1,0 +1,10 @@
+allowBuilds:
+  es5-ext: set this to true or false
+minimumReleaseAgeExclude:
+  - braces@3.0.3
+  - micromatch@4.0.8
+  - js-yaml@4.1.2
+overrides:
+  braces@<3.0.3: ^3.0.3
+  js-yaml@<=4.1.1: ^4.1.2
+  micromatch@<4.0.8: ^4.0.8

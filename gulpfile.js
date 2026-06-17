@@ -4,38 +4,48 @@ const cleanCSS = require('gulp-clean-css')
 const concat = require('gulp-concat')
 const rename = require('gulp-rename')
 
-const minify_css = () => (
-    gulp.src('src/css/*.css')
-        .pipe(cleanCSS({ compatibility: 'ie8' }))
-        .pipe(rename('artitalk.min.css'))
-        .pipe(gulp.dest('dist/css'))
-);
+const minifyCSS = () => (
+  gulp.src('src/css/*.css')
+    .pipe(cleanCSS({ compatibility: 'ie8' }))
+    .pipe(rename('artitalk.min.css'))
+    .pipe(gulp.dest('dist/css'))
+)
 
-const concat_js = () => (
-    gulp.src(['src/plugins/*.js', 'src/main.js'])
-        .pipe(concat('artitalk.js'))
-        .pipe(gulp.dest('dist/js'))
-);
+const concatJS = () => (
+    gulp.src([
+        'src/plugins/*.js',
+        'src/core/version.js',
+        'src/core/emoji.js',
+        'src/core/dom.js',
+        'src/core/data.js',
+        'src/main.js',
+        'src/modules/init.js',
+        'src/modules/upload.js',
+        'src/modules/content.js'
+    ])
+    .pipe(concat('artitalk.js', { newLine: ';\n' }))
+    .pipe(gulp.dest('dist/js'))
+)
 
-const minify_js = () => (
-    gulp.src('dist/js/artitalk.js')
-        .pipe(uglify())
-        .pipe(rename('artitalk.min.js'))
-        .pipe(gulp.dest('dist/js'))
-);
+const minifyJS = () => (
+  gulp.src('dist/js/artitalk.js')
+    .pipe(uglify())
+    .pipe(rename('artitalk.min.js'))
+    .pipe(gulp.dest('dist/js'))
+)
 
 module.exports = {
-    minify_css: minify_css,
-    concat_js: concat_js,
-    minify_js: minify_js
-};
+  minifyCSS: minifyCSS,
+  concatJS: concatJS,
+  minifyJS: minifyJS
+}
 
 gulp.task('dist', gulp.parallel(
-    minify_css,
-    gulp.series(
-        concat_js,
-        minify_js
-    )
+  minifyCSS,
+  gulp.series(
+    concatJS,
+    minifyJS
+  )
 ))
 
-gulp.task('default', gulp.series('dist'));
+gulp.task('default', gulp.series('dist'))
