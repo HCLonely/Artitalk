@@ -481,7 +481,14 @@ function preview () {
 'use strict';
 
 const ArtitalkData = {
-  ensureReady: function (callback) {
+  ensureReady: function (config, callback) {
+    config = config || {};
+    const useVercelBackend = config.backend === 'vercel' || config.provider === 'vercel';
+    if (useVercelBackend) {
+      const sdkBase = (config.sdkURL || config.serverURL || '').replace(/\/$/, '');
+      ArtitalkDom.loadScript(sdkBase + '/artitalk-av.js', callback);
+      return;
+    }
     if (window.AV) {
       callback();
       return;
@@ -553,7 +560,7 @@ function atEvery (option) {
 atEvery.prototype.init = function (option) {
   const root = this;
   root.config = option;
-  ArtitalkData.ensureReady(function () {
+  ArtitalkData.ensureReady(option, function () {
     !!option && root._init();
     return root;
   });

@@ -9,7 +9,7 @@ function atEvery (option) {
 atEvery.prototype.init = function (option) {
   const root = this;
   root.config = option;
-  ArtitalkData.ensureReady(function () {
+  ArtitalkData.ensureReady(option, function () {
     !!option && root._init();
     return root;
   });
