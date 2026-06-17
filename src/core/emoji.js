@@ -92,7 +92,7 @@ const atEmojiQQ = {
   qq_zhouma: 'https://fastly.jsdelivr.net/gh/Artitalk/Artitalk-emoji/zhouma.gif',
   qq_zhuakuang: 'https://fastly.jsdelivr.net/gh/Artitalk/Artitalk-emoji/zhuakuang.gif',
   qq_zuohengheng: 'https://fastly.jsdelivr.net/gh/Artitalk/Artitalk-emoji/zuohengheng.gif'
-}
+};
 const atEmojiTB = {
   OK: 'https://fastly.jsdelivr.net/gh/Artitalk/Artitalk-emoji/OK.png',
   what: 'https://fastly.jsdelivr.net/gh/Artitalk/Artitalk-emoji/what.png',
@@ -154,7 +154,7 @@ const atEmojiTB = {
   音乐: 'https://fastly.jsdelivr.net/gh/Artitalk/Artitalk-emoji/音乐.png',
   香蕉: 'https://fastly.jsdelivr.net/gh/Artitalk/Artitalk-emoji/香蕉.png',
   黑线: 'https://fastly.jsdelivr.net/gh/Artitalk/Artitalk-emoji/黑线.png'
-}
+};
 const atEmojiBB = {
   baiyan: 'https://fastly.jsdelivr.net/gh/Artitalk/Artitalk-emoji/baiyan.png',
   bishi: 'https://fastly.jsdelivr.net/gh/Artitalk/Artitalk-emoji/bishi.png',
@@ -204,16 +204,16 @@ const atEmojiBB = {
   zaijian: 'https://fastly.jsdelivr.net/gh/Artitalk/Artitalk-emoji/zaijian.png',
   zhoumei: 'https://fastly.jsdelivr.net/gh/Artitalk/Artitalk-emoji/zhoumei.png',
   zhuakuang: 'https://fastly.jsdelivr.net/gh/Artitalk/Artitalk-emoji/zhuakuang.png'
-}
-var atEmojiQ = ''
-var atEmojiT = ''
-var atEmojiB = ''
+};
+var atEmojiQ = '';
+var atEmojiT = '';
+var atEmojiB = '';
 for (const key in atEmojiQQ) {
-  atEmojiQ = atEmojiQ + "<img alt='[" + key + "]' title='" + key + "' onclick='insertEmoji(\"[" + key + "]\")' class='atemoji gallery-group-img' src='" + atEmojiQQ[key] + "'/>"
+  atEmojiQ = atEmojiQ + "<img alt='[" + key + "]' title='" + key + "' onclick='insertEmoji(\"[" + key + "]\")' class='atemoji gallery-group-img' src='" + atEmojiQQ[key] + "'/>";
 }
 for (const key in atEmojiTB) {
-  atEmojiT = atEmojiT + "<img alt='[" + key + "]' title='" + key + "' onclick='insertEmoji(\"[" + key + "]\")' class='atemoji gallery-group-img' src='" + atEmojiTB[key] + "'/>"
+  atEmojiT = atEmojiT + "<img alt='[" + key + "]' title='" + key + "' onclick='insertEmoji(\"[" + key + "]\")' class='atemoji gallery-group-img' src='" + atEmojiTB[key] + "'/>";
 }
 for (const key in atEmojiBB) {
-  atEmojiB = atEmojiB + "<img alt='[" + key + "]' title='" + key + "' onclick='insertEmoji(\"[" + key + "]\")' class='atemoji gallery-group-img' src='" + atEmojiBB[key] + "'/>"
+  atEmojiB = atEmojiB + "<img alt='[" + key + "]' title='" + key + "' onclick='insertEmoji(\"[" + key + "]\")' class='atemoji gallery-group-img' src='" + atEmojiBB[key] + "'/>";
 }

@@ -2,7 +2,7 @@ function Artitalk (options) {
   return new atEvery(options);
 }
 function atEvery (option) {
-  const root = this
+  const root = this;
   root.init(option);
   return root;
 }
@@ -13,4 +13,4 @@ atEvery.prototype.init = function (option) {
     !!option && root._init();
     return root;
   });
-}
+};
