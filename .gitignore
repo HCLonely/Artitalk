@@ -6,3 +6,4 @@ leancloud/
 server/*
 docs/*
 .vscode/*
+dev/*

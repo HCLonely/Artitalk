@@ -35,7 +35,7 @@ atEvery.prototype.beginUpload = function (file) {
   }
   fadeIn('lazy');
   const data = new FormData();
-  data.append('image', file);
+  data.append('file', file);
   const xhr = new XMLHttpRequest();
   xhr.withCredentials = false;
   xhr.addEventListener('readystatechange', function () {
@@ -56,11 +56,11 @@ atEvery.prototype.beginUpload = function (file) {
       fadeOut('lazy');
     }
   });
-  xhr.open('POST', 'https://7bu.top/api/upload');
+  xhr.open('POST', 'https://s.ee/api/v1/file/upload');
   const imgToken = ArtitalkData.currentUser().attributes.imgToken;
   if (imgToken !== undefined) {
-    xhr.setRequestHeader('Authorization', 'Basic VGVzdDoxMjM0NTY=');
-    xhr.setRequestHeader('token', imgToken);
+    xhr.setRequestHeader('Authorization', imgToken);
+    // xhr.setRequestHeader('token', imgToken);
   }
   xhr.send(data);
 };

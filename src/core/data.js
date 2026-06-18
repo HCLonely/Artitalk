@@ -2,18 +2,10 @@
 
 const ArtitalkData = {
   ensureReady: function (config, callback) {
-    config = config || {};
-    const useVercelBackend = config.backend === 'vercel' || config.provider === 'vercel';
-    if (useVercelBackend) {
-      const sdkBase = (config.sdkURL || config.serverURL || '').replace(/\/$/, '');
-      ArtitalkDom.loadScript(sdkBase + '/artitalk-av.js', callback);
-      return;
-    }
     if (window.AV) {
       callback();
       return;
     }
-    ArtitalkDom.loadScript('https://unpkg.com/leancloud-storage@4.10.0/dist/av-min.js', callback);
   },
   init: function (config) {
     if (config.serverURL !== '') {

@@ -1,6 +1,6 @@
 {
   "name": "artitalk",
-  "version": "2.4.2",
+  "version": "3.0.0",
   "entry": "./dist/js/artitalk.min.js",
   "scripts": {
     "build": "gulp --config gulpfile.js",
