@@ -17,16 +17,12 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - uses: pnpm/action-setup@v6
-        with:
-          version: latest
-
       - uses: actions/setup-node@v6
         with:
           node-version: '24'
           registry-url: 'https://registry.npmjs.org'
-
-      - run: pnpm install --frozen-lockfile
+          package-manager-cache: false  # never use caching in release builds
+      - run: npm ci
       - run: npm run build
       - run: npm test
-      - run: npm publish
+      - run: npm publish  # Or: npm stage publish

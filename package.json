@@ -1,14 +1,15 @@
 {
-  "name": "artitalk",
-  "version": "3.0.0",
-  "entry": "./dist/js/artitalk.min.js",
+  "name": "@hclonely/artitalk",
+  "version": "4.0.0",
+  "entry": "dist/js/artitalk.min.js",
+  "main": "dist/js/artitalk.min.js",
   "scripts": {
     "build": "gulp --config gulpfile.js",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix"
   },
   "dependencies": {
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.1",
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
@@ -17,11 +18,14 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.32.0",
+    "eslint": "^10.5.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-standard": "^4.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
