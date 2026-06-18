@@ -5,7 +5,7 @@
   "main": "dist/js/artitalk.min.js",
   "scripts": {
     "build": "gulp --config gulpfile.js",
-    "lint": "eslint src",
+    "test": "eslint src",
     "lint:fix": "eslint src --fix"
   },
   "dependencies": {
