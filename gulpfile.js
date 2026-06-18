@@ -3,6 +3,13 @@ const uglify = require('gulp-uglify-es').default;
 const cleanCSS = require('gulp-clean-css');
 const concat = require('gulp-concat');
 const rename = require('gulp-rename');
+const path = require('node:path');
+const { syncVersion } = require('./scripts/sync-version');
+
+const syncVersionTask = () => syncVersion({
+  packagePath: path.join(__dirname, 'package.json'),
+  versionPath: path.join(__dirname, 'src/core/version.js')
+});
 
 const minifyCSS = () => (
   gulp.src('src/css/*.css')
@@ -35,6 +42,7 @@ const minifyJS = () => (
 );
 
 module.exports = {
+  syncVersion: syncVersionTask,
   minifyCSS: minifyCSS,
   concatJS: concatJS,
   minifyJS: minifyJS
@@ -48,4 +56,4 @@ gulp.task('dist', gulp.parallel(
   )
 ));
 
-gulp.task('default', gulp.series('dist'));
+gulp.task('default', gulp.series(syncVersionTask, 'dist'));
