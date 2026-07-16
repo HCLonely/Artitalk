@@ -1,11 +1,11 @@
 # Artitalk.js
 
+Artitalk 是一个轻量级说说/动态发布组件，适合嵌入个人博客或静态站点。当前版本保留前端组件用法，并提供基于 Vercel + Neon Postgres 的服务端实现，用于替代 LeanCloud 依赖。
+
 ![](https://img.shields.io/github/stars/HCLonely/Artitalk)
 ![](https://img.shields.io/npm/dm/@hclonely/artitalk.svg)
 ![](https://img.shields.io/npm/v/@hclonely/artitalk.svg)
 ![](https://img.shields.io/badge/language-JavaScript-red)
-
-Artitalk 是一个轻量级说说/动态发布组件，适合嵌入个人博客或静态站点。当前版本保留前端组件用法，并提供基于 Vercel + Neon Postgres 的服务端实现，用于替代 LeanCloud 依赖。
 
 由于[原项目](https://github.com/ArtitalkJS/Artitalk)不再更新，LeanCloud即将关闭服务，所以本项目诞生了。
 
