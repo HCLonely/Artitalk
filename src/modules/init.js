@@ -324,6 +324,10 @@ atEvery.prototype._init = function () {
   const saveContent = document.getElementById('atSave');// savecontent
   const deleteSus = document.getElementById('deleteSus');// Delete successful
   const uploadSource = document.getElementById('uploadSource');// Upload image or video
+  const realUpload = document.getElementById('realUpload');
+  realUpload.onchange = function () {
+    root.beginUpload(this.files[0]);
+  };
   let pNum = 0;
   rmButton.onclick = function () {
     pNum = pNum + 1;

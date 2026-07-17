@@ -1,4 +1,7 @@
 atEvery.prototype.beginUpload = function (file) {
+  const imageUpload = (this.config && this.config.imageUpload) || {};
+  const uploadApi = imageUpload.api || 'https://s.ee/api/v1/file/upload';
+  const tokenHeader = imageUpload.tokenHeader || 'Authorization';
   function Show () {
     fadeIn('shade');
     fadeIn('shuoshuo-modal');
@@ -56,11 +59,10 @@ atEvery.prototype.beginUpload = function (file) {
       fadeOut('lazy');
     }
   });
-  xhr.open('POST', 'https://s.ee/api/v1/file/upload');
+  xhr.open('POST', uploadApi);
   const imgToken = ArtitalkData.currentUser().attributes.imgToken;
   if (imgToken !== undefined) {
-    xhr.setRequestHeader('Authorization', imgToken);
-    // xhr.setRequestHeader('token', imgToken);
+    xhr.setRequestHeader(tokenHeader, imgToken);
   }
   xhr.send(data);
 };
